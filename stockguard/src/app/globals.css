@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg:    #0b0c14;
+  --bg-2:  #10111f;
+  --bg-3:  #181928;
+  --bg-4:  #1e1f32;
+  --border: rgba(255,255,255,0.07);
+  --border-2: rgba(255,255,255,0.12);
+  --text:  #e8eaf0;
+  --text-2: #8892a4;
+  --text-3: #3d4560;
+  --a1:   #5ba3f5;
+  --jti:  #a78bfa;
+  --a10:  #fb923c;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans, system-ui, -apple-system, sans-serif);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  height: 100%;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,.1); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,.2); }
+
+/* Focus ring */
+:focus-visible { outline: 2px solid var(--a1); outline-offset: 2px; border-radius: 4px; }
+
+/* Form base resets */
+input, select, textarea {
+  background: var(--bg-3);
+  border: 1px solid var(--border-2);
+  color: var(--text);
+  border-radius: 6px;
+  padding: 7px 10px;
+  font-size: 13px;
+  width: 100%;
+  transition: border-color .15s;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--a1);
+}
+input::placeholder { color: var(--text-3); }
+select option { background: var(--bg-3); }
+textarea { resize: vertical; min-height: 64px; }
+
+/* Table */
+table { border-collapse: collapse; width: 100%; }
+th {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  color: var(--text-3);
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  font-weight: 500;
+  white-space: nowrap;
+}
+td {
+  padding: 9px 12px;
+  color: var(--text-2);
+  border-bottom: 1px solid rgba(255,255,255,.03);
+  font-size: 12px;
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(255,255,255,.015); }
+
+/* Animations */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: .2; }
+}
+.animate-blink { animation: blink 1.4s infinite; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn { animation: fadeIn .2s ease-out; }
